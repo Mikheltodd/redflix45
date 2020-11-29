@@ -10,10 +10,10 @@ USE RedFlix45;
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Movies;
 CREATE TABLE IF NOT EXISTS Movies (
-	movie_title VARCHAR(45) NOT NULL,
+	movie_title VARCHAR(60) NOT NULL,
 	movie_summary VARCHAR(500) NULL,
-	movie_year LONG NULL,
-	movie_director VARCHAR(45) NOT NULL,
+	movie_year INT NULL,
+	movie_director VARCHAR(60) NOT NULL,
 	PRIMARY KEY (movie_title)
 );
 -- Content Values - Movies
@@ -29,9 +29,9 @@ INSERT INTO Movies (movie_title, movie_summary, movie_year, movie_director)
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Shows;
 CREATE TABLE IF NOT EXISTS Shows (
-	show_title VARCHAR(45) NOT NULL,
+	show_title VARCHAR(60) NOT NULL,
 	show_seasons INT NULL,
-	show_episodes LONG NULL,
+	show_episodes INT NULL,
 	PRIMARY KEY (show_title)
 );
 -- Content Values - Shows
@@ -50,13 +50,13 @@ INSERT INTO Shows (show_title, show_seasons, show_episodes)
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Users;
 CREATE TABLE IF NOT EXISTS Users (
-	user_username VARCHAR(45) NOT NULL,
-    user_password VARCHAR(45) NOT NULL DEFAULT "user123",
+	user_username VARCHAR(40) NOT NULL,
+    user_password VARCHAR(40) NOT NULL DEFAULT "user123",
     user_name VARCHAR(60) NULL,
     user_lastname VARCHAR(60) NULL,
     user_email VARCHAR(60) NULL DEFAULT "user@123.com",
-    user_phone LONG NULL,
-    user_birthday VARCHAR(45) NULL DEFAULT "1900-01-01",
+    user_phone INT NULL,
+    user_birthday VARCHAR(40) NULL DEFAULT "1900-01-01",
     PRIMARY KEY (user_username)
 );
 -- User Values
