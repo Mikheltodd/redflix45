@@ -1,0 +1,20 @@
+Nombre Esquema	usuario	contraseña
+redflix45	G2M2E1	equipo167
+
+User
+	ID: user_username: varchar(45) -- string
+	user_password: varchar(45) -- string
+	user_name: varchar(60) -- string ---> personas con nombres largos
+	user_lastname: varchar(60) -- string
+	user_email: varchar(60) -- string ---> por el tamaño del dominio
+	user_phone: Long - Long
+	user_birthday: varchar(45) -- string
+Movie
+	ID: movie_title: varchar(45) -- string
+	movie_summary: varchar(200) -- string
+	movie_year: Long -- Long
+	movie_director: varchar(45) -- string
+Show
+	ID: show_title: varchar(45) -- string
+	show_seasons: int -- int
+	show_episodes: Long -- Long
