@@ -19,24 +19,8 @@ Show
 	show_seasons: int -- int
 	show_episodes: Long -- Long
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-Estefany Luna
-=======
-=======
->>>>>>> b0fd09517e854510db6191a21808df8885b1610c
 
 Estefany Luna
 Miguel Angel Ortiz Padilla
-<<<<<<< HEAD
->>>>>>> b1fe505a8f7ea7558005b41a0fa965ec7cbea329
->>>>>>> 98915b16ba5254d617986ff0296a051983c0d14f
-=======
 Oscar Mauricio Marin
->>>>>>> b0fd09517e854510db6191a21808df8885b1610c
-=======
 Luis Palacio Arias
->>>>>>ddgfdrthrt567765dgfgfhfh
