@@ -18,5 +18,6 @@ Show
 	ID: show_title: varchar(45) -- string
 	show_seasons: int -- int
 	show_episodes: Long -- Long
-	
-Oscar Mauricio Marin Torres	
+
+
+Miguel Angel Ortiz Padilla
