@@ -19,5 +19,13 @@ Show
 	show_seasons: int -- int
 	show_episodes: Long -- Long
 
+<<<<<<< HEAD
 
-Luis Palacio
+=======
+<<<<<<< HEAD
+Estefany Luna
+=======
+
+Miguel Angel Ortiz Padilla
+>>>>>>> b1fe505a8f7ea7558005b41a0fa965ec7cbea329
+>>>>>>> 98915b16ba5254d617986ff0296a051983c0d14f
