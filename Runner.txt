@@ -1,24 +1,25 @@
-/*
+/* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.com.G2M2E1.redflixELP;
+package co.com.eslunap.redflixELP;
 
-import co.com.G2M2E1.redflixELP.modelos.Pelicula;
-import co.com.G2M2E1.redflixELP.modelos.Serie;
-import co.com.G2M2E1.redflixELP.modelos.Usuario;
-import co.com.G2M2E1.redflixELP.repositorios.PeliculaRepositorio;
-import co.com.G2M2E1.redflixELP.repositorios.SerieRepositorio;
-import co.com.G2M2E1.redflixELP.repositorios.UsuarioRepositorio;
+import co.com.eslunap.redflixELP.modelos.Pelicula;
+import co.com.eslunap.redflixELP.modelos.Serie;
+import co.com.eslunap.redflixELP.modelos.Usuario;
+import co.com.eslunap.redflixELP.repositorios.PeliculaRepositorio;
+import co.com.eslunap.redflixELP.repositorios.SerieRepositorio;
+import co.com.eslunap.redflixELP.repositorios.UsuarioRepositorio;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-/**
- *
+/*
+ * TENER EN CUENTA QUE ESTE EJEMPLO ESTA BASADO EN EL MODELO DE BD 
+ * QUE YO ESTUVE MANEJANDO EN MI RETO 4
  * @author ESLUNAP
  */
 
