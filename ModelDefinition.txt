@@ -1,3 +1,4 @@
+Host: 181.58.185.101 Port:3306
 Nombre Esquema	usuario	contraseña
 redflix45	G2M2E1	equipo167
 
