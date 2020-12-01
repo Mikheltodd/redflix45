@@ -1,6 +1,11 @@
-Host: 181.58.185.101 Port:3306
-Nombre Esquema	usuario	contraseña
-redflix45	G2M2E1	equipo167
+Datos para Conexión al Servidor
+Host: 181.58.185.101 
+Port: 3306
+Nombre Esquema: redflix45
+usuario: G2M2E1
+contraseña: equipo167
+
+Modelo: 
 
 Users
 	ID: user_username: varchar(45) -- string
@@ -12,7 +17,7 @@ Users
 	user_birthday: varchar(45) -- string
 Movies
 	ID: movie_title: varchar(45) -- string
-	movie_summary: varchar(200) -- string
+	movie_summary: varchar(500) -- string
 	movie_year: Long -- Long
 	movie_director: varchar(45) -- string
 Shows
