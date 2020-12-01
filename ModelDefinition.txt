@@ -14,7 +14,7 @@ Users
 	user_lastname: varchar(60) -- string
 	user_email: varchar(60) -- string ---> por el tamaño del dominio
 	user_phone: Long - Long
-	user_birthday: varchar(45) -- string
+	user_birthday: Date -- string
 Movies
 	ID: movie_title: varchar(45) -- string
 	movie_summary: varchar(500) -- string
