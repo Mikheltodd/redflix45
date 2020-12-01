@@ -5,6 +5,8 @@
  */
 package co.g2m2e1.redflix45.views;
 
+import co.g2m2e1.redflix45.Redflix45Application;
+
 /**
  *
  * @author ESLUNAP
@@ -16,6 +18,8 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        String [] args = {};
+        Redflix45Application.runSpringServer(args);
     }
 
     /**
