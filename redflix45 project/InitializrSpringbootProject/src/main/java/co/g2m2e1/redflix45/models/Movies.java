@@ -62,6 +62,10 @@ public class Movies {
     public void setMovieDirector(String movieDirector) {
         this.movieDirector = movieDirector;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Movies{" + "movieTitle=" + movieTitle + ", movieSummary=" + movieSummary + ", movieYear=" + movieYear + ", movieDirector=" + movieDirector + '}';
+    }
+
 }

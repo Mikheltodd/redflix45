@@ -96,4 +96,9 @@ public class Users {
         this.userBirthday = userBirthday;
     }
 
+    @Override
+    public String toString() {
+        return "Users{" + "userUsername=" + userUsername + ", userPassword=" + userPassword + ", userName=" + userName + ", userLastname=" + userLastname + ", userEmail=" + userEmail + ", userPhone=" + userPhone + ", userBirthday=" + userBirthday + '}';
+    }
+
 }

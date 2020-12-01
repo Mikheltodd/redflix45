@@ -51,6 +51,10 @@ public class Shows {
     public void setShowEpisodes(String showEpisodes) {
         this.showEpisodes = showEpisodes;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Shows{" + "showTitle=" + showTitle + ", showSeasons=" + showSeasons + ", showEpisodes=" + showEpisodes + '}';
+    }
+
 }
