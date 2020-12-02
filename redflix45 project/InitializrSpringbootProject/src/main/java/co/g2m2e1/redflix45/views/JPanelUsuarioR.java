@@ -295,7 +295,6 @@ public class JPanelUsuarioR extends javax.swing.JPanel {
             String [] nombreSplit =nombre.split(" ");
             System.out.println(nombreSplit[0]);
             System.out.println(nombreSplit[1]);
-           // nombreSplit=nombre.split(" ");
             List<Users> userName = userRepository.findByUserNameAndUserLastname(nombreSplit[0],nombreSplit[1]);
             if (!userName.isEmpty()){
                 jTextFieldAlias.setText(userName.get(0).getUserUsername());
@@ -313,7 +312,11 @@ public class JPanelUsuarioR extends javax.swing.JPanel {
             }
         }
         if (jrbApellido.isSelected()){
-            List<Users> userLastName = userRepository.findByUserName(jListUsuarios.getSelectedValue());
+            String nombre = jListUsuarios.getSelectedValue();
+            String [] nombreSplit =nombre.split(" ");
+            System.out.println(nombreSplit[0]);
+            System.out.println(nombreSplit[1]);
+            List<Users> userLastName = userRepository.findByUserNameAndUserLastname(nombreSplit[0],nombreSplit[1]);
             if (!userLastName.isEmpty()){
                 jTextFieldAlias.setText(userLastName.get(0).getUserUsername());
                 jTextFieldNombre.setText(userLastName.get(0).getUserName());
