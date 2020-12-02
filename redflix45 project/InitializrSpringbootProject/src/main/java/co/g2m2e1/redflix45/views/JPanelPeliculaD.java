@@ -9,6 +9,7 @@ import co.g2m2e1.redflix45.Context;
 import co.g2m2e1.redflix45.models.Movies;
 import co.g2m2e1.redflix45.repositories.MoviesRepository;
 import java.util.List;
+import java.util.Optional;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -53,7 +54,7 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
         btnGroupTipoConsulta = new javax.swing.ButtonGroup();
         jTextFieldPelicula = new javax.swing.JTextField();
         jTextFieldNombreDir = new javax.swing.JTextField();
-        jButtonGuardarP = new javax.swing.JButton();
+        jButtonEliminarP = new javax.swing.JButton();
         jButtonLimpiarCampos = new javax.swing.JButton();
         jPanelTipoConsulta = new javax.swing.JPanel();
         jrbTitulo = new javax.swing.JRadioButton();
@@ -77,10 +78,10 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
 
         jTextFieldNombreDir.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre director"));
 
-        jButtonGuardarP.setText("Eliminar");
-        jButtonGuardarP.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEliminarP.setText("Eliminar");
+        jButtonEliminarP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGuardarPActionPerformed(evt);
+                jButtonEliminarPActionPerformed(evt);
             }
         });
 
@@ -177,7 +178,7 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
                             .addComponent(jTextFieldNombreDir, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(78, 78, 78)
-                        .addComponent(jButtonGuardarP)
+                        .addComponent(jButtonEliminarP)
                         .addGap(83, 83, 83)
                         .addComponent(jButtonLimpiarCampos))
                     .addGroup(layout.createSequentialGroup()
@@ -211,7 +212,7 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonGuardarP)
+                    .addComponent(jButtonEliminarP)
                     .addComponent(jButtonLimpiarCampos))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -233,54 +234,53 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
         jrbTitulo.setSelected(true);
     }//GEN-LAST:event_jButtonLimpiarCamposActionPerformed
 
-    private void jButtonGuardarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarPActionPerformed
+    private void jButtonEliminarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarPActionPerformed
         // TODO add your handling code here
-         
-        if (jrbTitulo.isSelected()){
-            try{
-                List<Movies> peliculas = movieRepository.findByMovieTitle(jTextFieldPelicula.getText());
-                if (!peliculas.isEmpty()){
-                    for (Movies p : peliculas) {
-                        System.out.println(p.toString());
-                        listModel.addElement(p.getMovieTitle());
-                        jtfAnno.setText(String.valueOf(p.getMovieYear()));
-                        jtpResumen.setText(p.getMovieSummary());
-                        jTextFieldNombreDir.setText(p.getMovieDirector());
-                    }
-                    jListPeliculas.setModel(listModel);
-                }else{
-                    System.out.println("La pelicula que busca no fue encontrada");
-                }
-            }catch(Exception e){
-                System.out.println("Error al consultar película");
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null,"Error al consultar película","Error",JOptionPane.WARNING_MESSAGE);
-            }
-            jTextFieldPelicula.requestFocus();
-        }
-        if (jrbNombreDir.isSelected()){
-           
-            try{
-                List<Movies> peliculas = movieRepository.findByMovieDirectorContaining((jTextFieldNombreDir.getText()));
-                if (!peliculas.isEmpty()){
-                    for (Movies p : peliculas) {
-                        System.out.println(p.toString());
-                        listModel.addElement(p.getMovieTitle());   
-                    }
-                    jListPeliculas.setModel(listModel);                    
-                }else{
-                    System.out.println("El director que busca no fue encontrado");
-                    JOptionPane.showMessageDialog(null,"El director que busca no fue encontrado","Error",JOptionPane.WARNING_MESSAGE);
-                }
-            }catch(Exception e){
-                System.out.println("Error al consultar película");
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null,"Error al consultar director","Error",JOptionPane.WARNING_MESSAGE);
-            }
-            jTextFieldNombreDir.requestFocus();
-        }
-    }//GEN-LAST:event_jButtonGuardarPActionPerformed
 
+        if (jrbTitulo.isSelected()) {
+            String idMovie = jTextFieldPelicula.getText();
+            Optional<Movies> opt = movieRepository.findById(jTextFieldPelicula.getText());
+            if (!idMovie.isEmpty()) {
+                try {
+                    if (opt.isPresent()) {
+                        movieRepository.deleteById(idMovie);
+                        JOptionPane.showMessageDialog(null, "Se elimino correctamente la pelicula "+idMovie, "", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se encontro la pelicula con nombre "+idMovie, "", JOptionPane.WARNING_MESSAGE);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Error al consultar película", "Error", JOptionPane.WARNING_MESSAGE);
+
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No ha el titulo de pelicula", "", JOptionPane.WARNING_MESSAGE);
+            }
+
+            if (jrbNombreDir.isSelected()) {
+
+                try {
+                    List<Movies> peliculas = movieRepository.findByMovieDirectorContaining((jTextFieldNombreDir.getText()));
+                    if (!peliculas.isEmpty()) {
+                        for (Movies p : peliculas) {
+                            System.out.println(p.toString());
+                            listModel.addElement(p.getMovieTitle());
+                        }
+                        jListPeliculas.setModel(listModel);
+                    } else {
+                        System.out.println("El director que busca no fue encontrado");
+                        JOptionPane.showMessageDialog(null, "El director que busca no fue encontrado", "Error", JOptionPane.WARNING_MESSAGE);
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error al consultar película");
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Error al consultar director", "Error", JOptionPane.WARNING_MESSAGE);
+                }
+                jTextFieldNombreDir.requestFocus();
+            }
+
+    }//GEN-LAST:event_jButtonEliminarPActionPerformed
+    }
     private void jrbTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbTituloActionPerformed
         // TODO add your handling code here:
         jTextFieldPelicula.setEnabled(true);
@@ -322,7 +322,7 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGroupTipoConsulta;
-    private javax.swing.JButton jButtonGuardarP;
+    private javax.swing.JButton jButtonEliminarP;
     private javax.swing.JButton jButtonLimpiarCampos;
     private javax.swing.JLabel jLabelInfoDirector;
     private javax.swing.JLabel jLabelInfoTitulo;

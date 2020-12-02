@@ -161,7 +161,7 @@ public class JPanelUsuarioD extends javax.swing.JPanel {
             Optional <Users> optional =  userRepository.findById(jTextFieldAlias.getText());
             if (alias.isEmpty()){
                 System.out.println("No ha digitado un alias");
-                JOptionPane.showMessageDialog(null,"No ha digitado nombre de usuario","Warning",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null,"No ha digitado un alias","Warning",JOptionPane.WARNING_MESSAGE);
             }else if(optional.isPresent()){
                 userRepository.deleteById(alias);
                 jTextFieldAlias.requestFocus();
