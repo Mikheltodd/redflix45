@@ -8,6 +8,7 @@ package co.g2m2e1.redflix45.views;
 import co.g2m2e1.redflix45.Context;
 import co.g2m2e1.redflix45.models.Shows;
 import co.g2m2e1.redflix45.repositories.ShowsRepository;
+import java.util.Optional;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -104,20 +105,30 @@ public class JPanelSerieC extends javax.swing.JPanel {
 
     private void jButtonGuardarSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarSActionPerformed
         // TODO add your handling code here:
-        try{
-            Shows s = new Shows();
-            s.setShowTitle(jTextFieldTituloSerie.getText());
-            s.setShowEpisodes(jTextFieldNoCaps.getText());
-            s.setShowSeasons(jTextFieldNoTemp.getText());
-            showRepository.save(s);
-            jTextFieldTituloSerie.requestFocus();
-            System.out.println("Se registró correctamente la serie "+s.getShowTitle());
-            JOptionPane.showMessageDialog(null, "Se registró correctamente la serie "+ s.getShowTitle(),"Mensaje",JOptionPane.INFORMATION_MESSAGE);
-        }catch(Exception e){
-            System.out.println("Error al ingresar la serie");
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"Error al ingresar la serie","Warning",JOptionPane.WARNING_MESSAGE);
-        }
+        String titleShow = jTextFieldTituloSerie.getText();
+        Optional<Shows> opt = showRepository.findById(jTextFieldTituloSerie.getText());
+        if (!titleShow.isEmpty()){
+            try{
+                if (!opt.isPresent()){
+                    Shows s = new Shows();
+                    s.setShowTitle(jTextFieldTituloSerie.getText());
+                    s.setShowEpisodes(jTextFieldNoCaps.getText());
+                    s.setShowSeasons(jTextFieldNoTemp.getText());
+                    showRepository.save(s);
+                    jTextFieldTituloSerie.requestFocus();
+                    System.out.println("Se registró correctamente la serie "+s.getShowTitle());
+                    JOptionPane.showMessageDialog(null, "Se registró correctamente la serie "+ s.getShowTitle(),"Mensaje",JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null,"Ya existe la serie ingresada","Warning",JOptionPane.WARNING_MESSAGE);
+                }    
+            }catch(Exception e){
+                System.out.println("Error al ingresar la serie");
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null,"Error al ingresar la serie","Warning",JOptionPane.WARNING_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"No ha ingresado nombre de la serie","Warning",JOptionPane.WARNING_MESSAGE);
+        }    
     }//GEN-LAST:event_jButtonGuardarSActionPerformed
 
     private void jButtonLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarCamposActionPerformed

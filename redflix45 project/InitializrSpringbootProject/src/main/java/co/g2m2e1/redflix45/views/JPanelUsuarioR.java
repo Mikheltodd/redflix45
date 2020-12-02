@@ -10,6 +10,7 @@ import co.g2m2e1.redflix45.models.Users;
 import co.g2m2e1.redflix45.repositories.UsersRepository;
 import java.util.List;
 import java.util.Optional;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -20,11 +21,13 @@ import javax.swing.JTextField;
 public class JPanelUsuarioR extends javax.swing.JPanel {
 
      UsersRepository userRepository;
+     DefaultListModel listModel = new DefaultListModel();
     /**
      * Creates new form JPanelUsuario
      */
     public JPanelUsuarioR() {
         initComponents();
+        jrbAlias.setSelected(true);
         userRepository = Context.getBean(UsersRepository.class);
     }
 
@@ -37,6 +40,7 @@ public class JPanelUsuarioR extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupTipoConsulta = new javax.swing.ButtonGroup();
         jTextFieldAlias = new javax.swing.JTextField();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldApellido = new javax.swing.JTextField();
@@ -50,15 +54,15 @@ public class JPanelUsuarioR extends javax.swing.JPanel {
         jrbNombres = new javax.swing.JRadioButton();
         jrbApellido = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jListPeliculas = new javax.swing.JList<>();
+        jListUsuarios = new javax.swing.JList<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         jTextFieldAlias.setBorder(javax.swing.BorderFactory.createTitledBorder("Alias"));
 
-        jTextFieldNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombres"));
+        jTextFieldNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre"));
 
-        jTextFieldApellido.setBorder(javax.swing.BorderFactory.createTitledBorder("Apellidos"));
+        jTextFieldApellido.setBorder(javax.swing.BorderFactory.createTitledBorder("Apellido"));
 
         jTextFieldEmail.setBorder(javax.swing.BorderFactory.createTitledBorder("Email"));
 
@@ -84,6 +88,7 @@ public class JPanelUsuarioR extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar por: "));
 
         jrbAlias.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupTipoConsulta.add(jrbAlias);
         jrbAlias.setText("Alias");
         jrbAlias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,9 +97,11 @@ public class JPanelUsuarioR extends javax.swing.JPanel {
         });
 
         jrbNombres.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupTipoConsulta.add(jrbNombres);
         jrbNombres.setText("Nombre");
 
         jrbApellido.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupTipoConsulta.add(jrbApellido);
         jrbApellido.setText("Apellido");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -121,14 +128,19 @@ public class JPanelUsuarioR extends javax.swing.JPanel {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        jListPeliculas.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultados"));
-        jListPeliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jListPeliculas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jListPeliculasValueChanged(evt);
+        jListUsuarios.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultados"));
+        jListUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jListUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListUsuariosMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(jListPeliculas);
+        jListUsuarios.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListUsuariosValueChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jListUsuarios);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -192,35 +204,66 @@ public class JPanelUsuarioR extends javax.swing.JPanel {
 
     private void jButtonConsultarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarUActionPerformed
         // TODO add your handling code here:
-       
-            String alias = jTextFieldAlias.getText();
+        try {
             
-            Optional <Users> optional =  userRepository.findById(alias);
-         try{
-                if (alias.isEmpty()){
-                System.out.println("No ha digitado un alias");
-                JOptionPane.showMessageDialog(null,"No ha digitado un alias","Warning",JOptionPane.WARNING_MESSAGE);
-            }else if(optional.isPresent()){
-                Users u = new Users();
-                u.setUserUsername(jTextFieldAlias.getText());
-                
-                u.setUserName(jTextFieldNombre.getText());
-                u.setUserLastname(jTextFieldApellido.getText());
-                u.setUserPhone(Long.parseLong(jTextFieldCelular.getText()));
-                u.setUserEmail(jTextFieldEmail.getText());
-                u.setUserBirthday(jTextFieldFechaNto.getText());
-                userRepository.save(u);
-                jTextFieldAlias.requestFocus();
-                System.out.println("Se registró exitosamente el usuario: "+ u.getUserUsername());
-                JOptionPane.showMessageDialog(null, "Se registró exitosamente el usuario: "+ u.getUserUsername(),"Mensaje",JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                JOptionPane.showMessageDialog(null,"El alias se encuentra en uso","Warning",JOptionPane.WARNING_MESSAGE);
+            if (jrbAlias.isSelected()) {
+                String alias = jTextFieldAlias.getText();
+                Optional<Users> optional = userRepository.findById(alias);
+
+                if (alias.isEmpty()) {
+                    System.out.println("No ha digitado un alias");
+                    JOptionPane.showMessageDialog(null, "No ha digitado un alias", "Warning", JOptionPane.WARNING_MESSAGE);
+                } else if (optional.isPresent()) {
+                    listModel.addElement(optional.get().getUserName()+" "+optional.get().getUserLastname());
+                    jTextFieldNombre.setText(optional.get().getUserName());
+                    jTextFieldApellido.setText(optional.get().getUserLastname());
+                    jTextFieldCelular.setText(String.valueOf(optional.get().getUserPhone()));
+                    jTextFieldEmail.setText(optional.get().getUserEmail());
+                    jTextFieldFechaNto.setText(optional.get().getUserBirthday());
+                    jTextFieldAlias.requestFocus();
+                    jListUsuarios.setModel(listModel);
+                } else {
+                    JOptionPane.showMessageDialog(null, "El usuario " + alias + " no fue encontrado", "Warning", JOptionPane.WARNING_MESSAGE);
+                }
             }
-        }catch(Exception e){
-            System.out.println("Error al crear usuario");
+            if (jrbNombres.isSelected()) {
+                String nombre = jTextFieldNombre.getText();
+                List<Users> userNames = userRepository.findByUserNameContaining(nombre);
+
+                if (nombre.isEmpty()) {
+                    System.out.println("No ha ingresado ningún nombre");
+                    JOptionPane.showMessageDialog(null, "No ha digitado ningún nombre", "Warning", JOptionPane.WARNING_MESSAGE);
+                } else if (!userNames.isEmpty()) {
+                    for (Users userName : userNames) {
+                        listModel.addElement(userName.getUserName()+" "+userName.getUserLastname());
+                    }
+                    jListUsuarios.setModel(listModel);
+                } else {
+                    JOptionPane.showMessageDialog(null, "El usuario con nombre " + nombre + " no fue encontrado", "Warning", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            if (jrbApellido.isSelected()) {
+                String apellido = jTextFieldApellido.getText();
+                List<Users> userLastNames = userRepository.findByUserLastnameContaining(apellido);
+
+                if (apellido.isEmpty()) {
+                    System.out.println("No ha ingresado ningún apellido");
+                    JOptionPane.showMessageDialog(null, "No ha digitado ningún apellido", "Warning", JOptionPane.WARNING_MESSAGE);
+                } else if (!userLastNames.isEmpty()) {
+                    for (Users userLastName : userLastNames) {
+                        listModel.addElement(userLastName.getUserName()+" "+userLastName.getUserLastname());
+                    }
+                    jListUsuarios.setModel(listModel);
+                } else {
+                    JOptionPane.showMessageDialog(null, "El usuario con nombre " + apellido + " no fue encontrado", "Warning", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al realizar consulta");
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"Error al crear usuario","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al realizar consulta", "Warning", JOptionPane.WARNING_MESSAGE);
         }
+
     }//GEN-LAST:event_jButtonConsultarUActionPerformed
 
     private void jButtonLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarCamposActionPerformed
@@ -232,33 +275,67 @@ public class JPanelUsuarioR extends javax.swing.JPanel {
                 caja.setText("");            
             }        
         }
-        jTextFieldAlias.requestFocus();
+        listModel.clear();
+        jListUsuarios.setModel(listModel);
     }//GEN-LAST:event_jButtonLimpiarCamposActionPerformed
 
     private void jrbAliasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbAliasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jrbAliasActionPerformed
 
-    private void jListPeliculasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListPeliculasValueChanged
+    private void jListUsuariosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListUsuariosValueChanged
         // TODO add your handling code here:
-       // if (jrbAlias.isSelected()){
-           // List<Movies> peliculas = movieRepository.findByMovieTitle(jListPeliculas.getSelectedValue());
-            //if (!peliculas.isEmpty()){
-//                jtfAnno.setText(String.valueOf(peliculas.get(0).getMovieYear()));
-//                jtpResumen.setText(peliculas.get(0).getMovieSummary());
-//                jTextFieldPelicula.setText(peliculas.get(0).getMovieTitle());
-//                jTextFieldNombreDir.setEnabled(true);
-//            }else{
-//                System.out.println("La pelicula que busca no fue encontrada");
-//            }
-//        }
-    }//GEN-LAST:event_jListPeliculasValueChanged
+  
+    }//GEN-LAST:event_jListUsuariosValueChanged
+
+    private void jListUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListUsuariosMouseClicked
+        // TODO add your handling code here:
+        if (jrbNombres.isSelected()){
+            String nombre = jListUsuarios.getSelectedValue();
+            String [] nombreSplit =nombre.split(" ");
+            System.out.println(nombreSplit[0]);
+            System.out.println(nombreSplit[1]);
+           // nombreSplit=nombre.split(" ");
+            List<Users> userName = userRepository.findByUserNameAndUserLastname(nombreSplit[0],nombreSplit[1]);
+            if (!userName.isEmpty()){
+                jTextFieldAlias.setText(userName.get(0).getUserUsername());
+                jTextFieldNombre.setText(userName.get(0).getUserName());
+                jTextFieldApellido.setText(userName.get(0).getUserLastname());
+                jTextFieldCelular.setText(String.valueOf(userName.get(0).getUserPhone()));
+                jTextFieldEmail.setText(userName.get(0).getUserEmail());
+                jTextFieldFechaNto.setText(userName.get(0).getUserBirthday());
+                jTextFieldNombre.requestFocus();
+                jListUsuarios.setModel(listModel);
+                return;
+            }else{
+                System.out.println("El nombre que busca no fue encontrado");
+                JOptionPane.showMessageDialog(null, "El nombre que busca no fue encontrado", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        if (jrbApellido.isSelected()){
+            List<Users> userLastName = userRepository.findByUserName(jListUsuarios.getSelectedValue());
+            if (!userLastName.isEmpty()){
+                jTextFieldAlias.setText(userLastName.get(0).getUserUsername());
+                jTextFieldNombre.setText(userLastName.get(0).getUserName());
+                jTextFieldApellido.setText(userLastName.get(0).getUserLastname());
+                jTextFieldCelular.setText(String.valueOf(userLastName.get(0).getUserPhone()));
+                jTextFieldEmail.setText(userLastName.get(0).getUserEmail());
+                jTextFieldFechaNto.setText(userLastName.get(0).getUserBirthday());
+                jTextFieldAlias.requestFocus();
+                jListUsuarios.setModel(listModel);
+            }else{
+                System.out.println("El apellido que busca no fue encontrado");
+                JOptionPane.showMessageDialog(null, "El apellido que busca no fue encontrado", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_jListUsuariosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupTipoConsulta;
     private javax.swing.JButton jButtonConsultarU;
     private javax.swing.JButton jButtonLimpiarCampos;
-    private javax.swing.JList<String> jListPeliculas;
+    private javax.swing.JList<String> jListUsuarios;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextFieldAlias;
