@@ -244,7 +244,7 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
                         System.out.println(p.toString());
                         listModel.addElement(p.getMovieTitle());
                         jtfAnno.setText(String.valueOf(p.getMovieYear()));
-                        jtpResumen.setText(p.getMovieDirector());
+                        jtpResumen.setText(p.getMovieSummary());
                         jTextFieldNombreDir.setText(p.getMovieDirector());
                     }
                     jListPeliculas.setModel(listModel);
