@@ -1,15 +1,14 @@
 -- -----------------------------------------------------
 -- Schema RedFlix45
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS RedFlix45;
-CREATE SCHEMA IF NOT EXISTS RedFlix45;
-USE RedFlix45;
+DROP SCHEMA IF EXISTS redflix45;
+CREATE SCHEMA IF NOT EXISTS redflix45;
+USE redflix45;
 
 -- -----------------------------------------------------
 -- Table RedFlix45.Movies
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Movies;
-CREATE TABLE IF NOT EXISTS Movies (
+CREATE TABLE IF NOT EXISTS movies (
 	movie_title VARCHAR(60) NOT NULL,
 	movie_summary VARCHAR(500) NULL,
 	movie_year INT NULL,
@@ -17,7 +16,7 @@ CREATE TABLE IF NOT EXISTS Movies (
 	PRIMARY KEY (movie_title)
 );
 -- Content Values - Movies
-INSERT INTO Movies (movie_title, movie_summary, movie_year, movie_director)
+INSERT INTO movies (movie_title, movie_summary, movie_year, movie_director)
 	VALUES 
 		("Los Vengadores", "Pelicula de superheroes basada en Marvel Comics. Nick Fury director de SHIELD recluta a Tony Stark, Steve Rogers, Bruce Banner y Thor para forma un equipo y evitar que Loki, hermano de Thor, se apodere de la tierra.", 1990, "Joss Whedon"),
         ("Interestelar", "Pelicula de ciencia ficción, donde la humanidad lucha por sobrevivir. La pelicula cuenta una historia de un grupo de astronautas que viajan a traves de un agujero de gusano en busca de un nuevo hogar.", 2014, "Christopher Nolan"),
@@ -27,15 +26,15 @@ INSERT INTO Movies (movie_title, movie_summary, movie_year, movie_director)
 -- -----------------------------------------------------
 -- Table RedFlix45.Shows
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Shows;
-CREATE TABLE IF NOT EXISTS Shows (
+
+CREATE TABLE IF NOT EXISTS shows (
 	show_title VARCHAR(60) NOT NULL,
 	show_seasons INT NULL,
 	show_episodes INT NULL,
 	PRIMARY KEY (show_title)
 );
 -- Content Values - Shows
-INSERT INTO Shows (show_title, show_seasons, show_episodes)
+INSERT INTO shows (show_title, show_seasons, show_episodes)
 	VALUES 
 		("The walking dead", 11, 153),
         ("Viaje a las estrellas: la serie original", 3, 80),
@@ -48,19 +47,19 @@ INSERT INTO Shows (show_title, show_seasons, show_episodes)
 -- -----------------------------------------------------
 -- Table RedFlix.Users
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Users;
-CREATE TABLE IF NOT EXISTS Users (
+
+CREATE TABLE IF NOT EXISTS users (
 	user_username VARCHAR(40) NOT NULL,
     user_password VARCHAR(40) NOT NULL DEFAULT "user123",
     user_name VARCHAR(60) NULL,
     user_lastname VARCHAR(60) NULL,
     user_email VARCHAR(60) NULL DEFAULT "user@123.com",
-    user_phone INT NULL,
+    user_phone LONG NULL,
     user_birthday DATE NULL DEFAULT "1900-01-01",
     PRIMARY KEY (user_username)
 );
 -- User Values
-INSERT INTO Users (user_username, user_name, user_lastname)
+INSERT INTO users (user_username, user_name, user_lastname)
 	VALUES 
 		("lucky", "Pedro", "Perez"),
         ("malopez", "Maria", "Lopez"),
