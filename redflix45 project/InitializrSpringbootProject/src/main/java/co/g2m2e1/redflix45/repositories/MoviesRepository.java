@@ -15,4 +15,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface MoviesRepository extends JpaRepository<Movies, String>{
     List<Movies> findByMovieTitle(String movieTitle);
+    List<Movies> findByMovieDirectorContaining(String MovieDirector);
 }

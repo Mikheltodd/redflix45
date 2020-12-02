@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("co.com.g2m2e1.redflix45")
+//@ComponentScan("co.com.g2m2e1.redflix45")
 public class Redflix45Application {
 
 	public static void main(String[] args) {
