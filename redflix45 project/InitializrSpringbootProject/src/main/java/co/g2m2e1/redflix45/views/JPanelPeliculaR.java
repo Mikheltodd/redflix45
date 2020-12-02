@@ -250,13 +250,14 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
                     jListPeliculas.setModel(listModel);
                 }else{
                     System.out.println("La pelicula que busca no fue encontrada");
+                    JOptionPane.showMessageDialog(null,"La pelicula que busca no fue encontrada","Mensaje",JOptionPane.INFORMATION_MESSAGE);
                 }
             }catch(Exception e){
                 System.out.println("Error al consultar película");
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null,"Error al consultar película","Error",JOptionPane.WARNING_MESSAGE);
             }
-            jTextFieldPelicula.requestFocus();
+           
         }
         if (jrbNombreDir.isSelected()){
            
@@ -277,7 +278,7 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null,"Error al consultar director","Error",JOptionPane.WARNING_MESSAGE);
             }
-            jTextFieldNombreDir.requestFocus();
+           
         }
     }//GEN-LAST:event_jButtonGuardarPActionPerformed
 

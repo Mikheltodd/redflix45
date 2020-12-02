@@ -8,6 +8,7 @@ package co.g2m2e1.redflix45.views;
 import co.g2m2e1.redflix45.Context;
 import co.g2m2e1.redflix45.models.Shows;
 import co.g2m2e1.redflix45.repositories.ShowsRepository;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -35,11 +36,20 @@ public class JPanelSerieR extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         jTextFieldTituloSerie = new javax.swing.JTextField();
         jTextFieldNoCaps = new javax.swing.JTextField();
         jTextFieldNoTemp = new javax.swing.JTextField();
         jButtonGuardarS = new javax.swing.JButton();
         jButtonLimpiarCampos = new javax.swing.JButton();
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -49,7 +59,8 @@ public class JPanelSerieR extends javax.swing.JPanel {
 
         jTextFieldNoTemp.setBorder(javax.swing.BorderFactory.createTitledBorder("No. Temporadas"));
 
-        jButtonGuardarS.setText("Crear");
+        jButtonGuardarS.setText("Consultar");
+        jButtonGuardarS.setActionCommand("Consultar");
         jButtonGuardarS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGuardarSActionPerformed(evt);
@@ -79,7 +90,7 @@ public class JPanelSerieR extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jButtonGuardarS)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldNoTemp)
                             .addComponent(jButtonLimpiarCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -104,19 +115,26 @@ public class JPanelSerieR extends javax.swing.JPanel {
 
     private void jButtonGuardarSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarSActionPerformed
         // TODO add your handling code here:
-        try{
-            Shows s = new Shows();
-            s.setShowTitle(jTextFieldTituloSerie.getText());
-            s.setShowEpisodes(jTextFieldNoCaps.getText());
-            s.setShowSeasons(jTextFieldNoTemp.getText());
-            showRepository.save(s);
-            jTextFieldTituloSerie.requestFocus();
-            System.out.println("Se registró correctamente la serie "+s.getShowTitle());
-            JOptionPane.showMessageDialog(null, "Se registró correctamente la serie "+ s.getShowTitle(),"Mensaje",JOptionPane.INFORMATION_MESSAGE);
-        }catch(Exception e){
-            System.out.println("Error al ingresar la serie");
+        String show = jTextFieldTituloSerie.getText();
+        try {
+            List<Shows> serie = showRepository.findByShowTitle(show);
+            if (show.isEmpty()) {
+                System.out.println("Por favor digite el nombre de la serie");
+                JOptionPane.showMessageDialog(null, "Por favor digite el nombre de la serie", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (!serie.isEmpty()) {
+                for (Shows s : serie) {
+                    System.out.println("Serie disponible: " + s.getShowTitle() + " consta de " + s.getShowEpisodes() + " episodios en " + s.getShowSeasons() + " temporadas");
+                    jTextFieldNoCaps.setText(s.getShowEpisodes());
+                    jTextFieldNoTemp.setText(s.getShowSeasons());
+                }
+            } else {
+                System.out.println("La serie que busca no fue encontrada");
+                JOptionPane.showMessageDialog(null, "La serie " + show + " no fue encontrada", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al consultar la serie");
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"Error al ingresar la serie","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al consultar la serie", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButtonGuardarSActionPerformed
 
@@ -136,6 +154,8 @@ public class JPanelSerieR extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonGuardarS;
     private javax.swing.JButton jButtonLimpiarCampos;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldNoCaps;
     private javax.swing.JTextField jTextFieldNoTemp;
     private javax.swing.JTextField jTextFieldTituloSerie;
