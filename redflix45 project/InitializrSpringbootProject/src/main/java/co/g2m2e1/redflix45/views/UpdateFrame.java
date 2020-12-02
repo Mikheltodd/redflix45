@@ -50,7 +50,7 @@ public class UpdateFrame extends javax.swing.JFrame {
         setLocation(new java.awt.Point(100, 100));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        jLabel1.setText("Menú Consultas");
+        jLabel1.setText("Menú Actualizar");
 
         jComboBoxRead.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Serie", "Película" }));
         jComboBoxRead.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +72,7 @@ public class UpdateFrame extends javax.swing.JFrame {
                 .addContainerGap())
             .addComponent(jSeparator1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(151, Short.MAX_VALUE)
+                .addContainerGap(149, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jComboBoxRead, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))

@@ -39,18 +39,13 @@ public class JPanelUsuarioU extends javax.swing.JPanel {
 
         jTextFieldAlias = new javax.swing.JTextField();
         jTextFieldNombre = new javax.swing.JTextField();
-        jTextFieldApellido = new javax.swing.JTextField();
         jTextFieldEmail = new javax.swing.JTextField();
         jTextFieldCelular = new javax.swing.JTextField();
         jTextFieldFechaNto = new javax.swing.JTextField();
         jButtonConsultarU = new javax.swing.JButton();
         jButtonLimpiarCampos = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jrbAlias = new javax.swing.JRadioButton();
-        jrbNombres = new javax.swing.JRadioButton();
-        jrbApellido = new javax.swing.JRadioButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jListPeliculas = new javax.swing.JList<>();
+        jTextFieldApellido1 = new javax.swing.JTextField();
+        jPassword1 = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -58,15 +53,13 @@ public class JPanelUsuarioU extends javax.swing.JPanel {
 
         jTextFieldNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombres"));
 
-        jTextFieldApellido.setBorder(javax.swing.BorderFactory.createTitledBorder("Apellidos"));
-
         jTextFieldEmail.setBorder(javax.swing.BorderFactory.createTitledBorder("Email"));
 
         jTextFieldCelular.setBorder(javax.swing.BorderFactory.createTitledBorder("Celular"));
 
         jTextFieldFechaNto.setBorder(javax.swing.BorderFactory.createTitledBorder("Fecha nacimiento"));
 
-        jButtonConsultarU.setText("Consultar");
+        jButtonConsultarU.setText("Actualizar");
         jButtonConsultarU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonConsultarUActionPerformed(evt);
@@ -80,147 +73,102 @@ public class JPanelUsuarioU extends javax.swing.JPanel {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar por: "));
+        jTextFieldApellido1.setBorder(javax.swing.BorderFactory.createTitledBorder("Apellidos"));
 
-        jrbAlias.setBackground(new java.awt.Color(255, 255, 255));
-        jrbAlias.setText("Alias");
-        jrbAlias.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbAliasActionPerformed(evt);
-            }
-        });
-
-        jrbNombres.setBackground(new java.awt.Color(255, 255, 255));
-        jrbNombres.setText("Nombre");
-
-        jrbApellido.setBackground(new java.awt.Color(255, 255, 255));
-        jrbApellido.setText("Apellido");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jrbAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jrbNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jrbApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jrbAlias)
-                    .addComponent(jrbNombres)
-                    .addComponent(jrbApellido))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-
-        jListPeliculas.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultados"));
-        jListPeliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jListPeliculas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jListPeliculasValueChanged(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jListPeliculas);
+        jPassword1.setText("jPasswordField1");
+        jPassword1.setToolTipText("");
+        jPassword1.setBorder(javax.swing.BorderFactory.createTitledBorder("Contraseña"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextFieldAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldFechaNto, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(23, 23, 23)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jButtonConsultarU)
-                        .addGap(35, 35, 35)
-                        .addComponent(jButtonLimpiarCampos)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jTextFieldCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jButtonConsultarU)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonLimpiarCampos)
+                            .addComponent(jTextFieldFechaNto, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(118, 118, 118)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldAlias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldFechaNto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jPassword1)
+                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldFechaNto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonConsultarU)
                     .addComponent(jButtonLimpiarCampos))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(68, 68, 68))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonConsultarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarUActionPerformed
         // TODO add your handling code here:
        
-            String alias = jTextFieldAlias.getText();
-            
+            String alias = jTextFieldAlias.getText();            
             Optional <Users> optional =  userRepository.findById(alias);
-         try{
-                if (alias.isEmpty()){
-                System.out.println("No ha digitado un alias");
-                JOptionPane.showMessageDialog(null,"No ha digitado un alias","Warning",JOptionPane.WARNING_MESSAGE);
-            }else if(optional.isPresent()){
-                Users u = new Users();
-                u.setUserUsername(jTextFieldAlias.getText());
-                
-                u.setUserName(jTextFieldNombre.getText());
-                u.setUserLastname(jTextFieldApellido.getText());
-                u.setUserPhone(Long.parseLong(jTextFieldCelular.getText()));
-                u.setUserEmail(jTextFieldEmail.getText());
-                u.setUserBirthday(jTextFieldFechaNto.getText());
-                userRepository.save(u);
-                jTextFieldAlias.requestFocus();
-                System.out.println("Se registró exitosamente el usuario: "+ u.getUserUsername());
-                JOptionPane.showMessageDialog(null, "Se registró exitosamente el usuario: "+ u.getUserUsername(),"Mensaje",JOptionPane.INFORMATION_MESSAGE);
+            if(!alias.isEmpty()){
+                try{
+                    if(optional.isPresent()){
+                        Users u=new Users();
+                        u.setUserUsername(alias);
+                        u.setUserName(jTextFieldNombre.getText());
+                        u.setUserLastname(jTextFieldApellido1.getText());
+                        u.setUserPassword(jPassword1.getText());
+                      
+                        u.setUserEmail(jTextFieldEmail.getText());
+                        u.setUserPhone(Long.parseLong(jTextFieldCelular.getText()));
+                        u.setUserBirthday(jTextFieldFechaNto.getText());
+                        userRepository.save(u);
+                        JOptionPane.showMessageDialog(null,"Se actualizo correctamente el usuario: "+alias,"Warning",JOptionPane.WARNING_MESSAGE);
+
+                    }else{
+                        JOptionPane.showMessageDialog(null,"No ha encontrado un alias: "+alias,"Warning",JOptionPane.WARNING_MESSAGE);
+                    
+                    }
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null,"Se ha producido un error al actualizar el usuario","Warning",JOptionPane.WARNING_MESSAGE);
+                }
             }else{
-                JOptionPane.showMessageDialog(null,"El alias se encuentra en uso","Warning",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null,"No se ha digitado el campo alias","Warning",JOptionPane.WARNING_MESSAGE);
+            
             }
-        }catch(Exception e){
-            System.out.println("Error al crear usuario");
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"Error al crear usuario","Warning",JOptionPane.WARNING_MESSAGE);
-        }
+         
     }//GEN-LAST:event_jButtonConsultarUActionPerformed
 
     private void jButtonLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarCamposActionPerformed
@@ -235,40 +183,16 @@ public class JPanelUsuarioU extends javax.swing.JPanel {
         jTextFieldAlias.requestFocus();
     }//GEN-LAST:event_jButtonLimpiarCamposActionPerformed
 
-    private void jrbAliasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbAliasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jrbAliasActionPerformed
-
-    private void jListPeliculasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListPeliculasValueChanged
-        // TODO add your handling code here:
-       // if (jrbAlias.isSelected()){
-           // List<Movies> peliculas = movieRepository.findByMovieTitle(jListPeliculas.getSelectedValue());
-            //if (!peliculas.isEmpty()){
-//                jtfAnno.setText(String.valueOf(peliculas.get(0).getMovieYear()));
-//                jtpResumen.setText(peliculas.get(0).getMovieSummary());
-//                jTextFieldPelicula.setText(peliculas.get(0).getMovieTitle());
-//                jTextFieldNombreDir.setEnabled(true);
-//            }else{
-//                System.out.println("La pelicula que busca no fue encontrada");
-//            }
-//        }
-    }//GEN-LAST:event_jListPeliculasValueChanged
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConsultarU;
     private javax.swing.JButton jButtonLimpiarCampos;
-    private javax.swing.JList<String> jListPeliculas;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPasswordField jPassword1;
     private javax.swing.JTextField jTextFieldAlias;
-    private javax.swing.JTextField jTextFieldApellido;
+    private javax.swing.JTextField jTextFieldApellido1;
     private javax.swing.JTextField jTextFieldCelular;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldFechaNto;
     private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JRadioButton jrbAlias;
-    private javax.swing.JRadioButton jrbApellido;
-    private javax.swing.JRadioButton jrbNombres;
     // End of variables declaration//GEN-END:variables
 }

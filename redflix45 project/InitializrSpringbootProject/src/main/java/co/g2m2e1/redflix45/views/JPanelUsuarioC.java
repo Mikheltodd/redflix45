@@ -64,6 +64,11 @@ public class JPanelUsuarioC extends javax.swing.JPanel {
                 jPasswordField1MouseClicked(evt);
             }
         });
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
 
         jTextFieldCelular.setBorder(javax.swing.BorderFactory.createTitledBorder("Celular"));
 
@@ -191,6 +196,10 @@ public class JPanelUsuarioC extends javax.swing.JPanel {
         }
         jTextFieldAlias.requestFocus();
     }//GEN-LAST:event_jButtonLimpiarCamposActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
