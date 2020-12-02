@@ -37,8 +37,6 @@ public class JPanelSerieD extends javax.swing.JPanel {
     private void initComponents() {
 
         jTextFieldTituloSerie = new javax.swing.JTextField();
-        jTextFieldNoCaps = new javax.swing.JTextField();
-        jTextFieldNoTemp = new javax.swing.JTextField();
         jButtonGuardarS = new javax.swing.JButton();
         jButtonLimpiarCampos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -46,10 +44,6 @@ public class JPanelSerieD extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         jTextFieldTituloSerie.setBorder(javax.swing.BorderFactory.createTitledBorder("Título serie"));
-
-        jTextFieldNoCaps.setBorder(javax.swing.BorderFactory.createTitledBorder("No. Capítulos"));
-
-        jTextFieldNoTemp.setBorder(javax.swing.BorderFactory.createTitledBorder("No. Temporadas"));
 
         jButtonGuardarS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basura.png"))); // NOI18N
         jButtonGuardarS.setText("Eliminar");
@@ -78,15 +72,10 @@ public class JPanelSerieD extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldTituloSerie)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldNoCaps, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButtonGuardarS)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldNoTemp)
-                            .addComponent(jButtonLimpiarCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jButtonLimpiarCampos)))
                 .addGap(12, 12, 12))
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
@@ -96,15 +85,11 @@ public class JPanelSerieD extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addGap(8, 8, 8)
-                .addComponent(jTextFieldTituloSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldNoCaps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNoTemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addComponent(jTextFieldTituloSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonGuardarS)
                     .addComponent(jButtonLimpiarCampos))
@@ -154,8 +139,6 @@ public class JPanelSerieD extends javax.swing.JPanel {
     private javax.swing.JButton jButtonGuardarS;
     private javax.swing.JButton jButtonLimpiarCampos;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextFieldNoCaps;
-    private javax.swing.JTextField jTextFieldNoTemp;
     private javax.swing.JTextField jTextFieldTituloSerie;
     // End of variables declaration//GEN-END:variables
 }
