@@ -54,81 +54,52 @@ public class JPanelPeliculaU extends javax.swing.JPanel {
         jtfAnno = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jtpResumen = new javax.swing.JTextPane();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextFieldPelicula.setToolTipText("Ingrese título de la película que desea consultar");
         jTextFieldPelicula.setBorder(javax.swing.BorderFactory.createTitledBorder("Título película"));
         jTextFieldPelicula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPeliculaActionPerformed(evt);
             }
         });
+        add(jTextFieldPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 35, 203, -1));
 
         jTextFieldNombreDir.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre director"));
+        add(jTextFieldNombreDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 86, 218, -1));
 
+        jButtonActualizarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editar.png"))); // NOI18N
         jButtonActualizarP.setText("Actualizar");
         jButtonActualizarP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonActualizarPActionPerformed(evt);
             }
         });
+        add(jButtonActualizarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
 
+        jButtonLimpiarCampos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/escoba.jpeg"))); // NOI18N
         jButtonLimpiarCampos.setText("Limpiar Campos");
         jButtonLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLimpiarCamposActionPerformed(evt);
             }
         });
+        add(jButtonLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, -1, -1));
 
         jtfAnno.setBorder(javax.swing.BorderFactory.createTitledBorder("Año"));
+        add(jtfAnno, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 131, 98, 38));
 
         jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Resumen"));
         jScrollPane3.setViewportView(jtpResumen);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(33, 33, 33)
-                            .addComponent(jtfAnno, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jTextFieldPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextFieldNombreDir, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jButtonActualizarP)
-                        .addGap(72, 72, 72)
-                        .addComponent(jButtonLimpiarCampos)))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNombreDir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(jtfAnno, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonActualizarP)
-                    .addComponent(jButtonLimpiarCampos))
-                .addContainerGap(37, Short.MAX_VALUE))
-        );
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 175, 256, 129));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 2, 10)); // NOI18N
+        jLabel1.setText("Búsqueda por Título película");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarCamposActionPerformed
@@ -183,6 +154,7 @@ public class JPanelPeliculaU extends javax.swing.JPanel {
     private javax.swing.ButtonGroup btnGroupTipoConsulta;
     private javax.swing.JButton jButtonActualizarP;
     private javax.swing.JButton jButtonLimpiarCampos;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextFieldNombreDir;
     private javax.swing.JTextField jTextFieldPelicula;

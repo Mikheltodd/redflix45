@@ -41,66 +41,41 @@ public class JPanelSerieU extends javax.swing.JPanel {
         jTextFieldNoTemp = new javax.swing.JTextField();
         jButtonGuardarS = new javax.swing.JButton();
         jButtonLimpiarCampos = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextFieldTituloSerie.setBorder(javax.swing.BorderFactory.createTitledBorder("Título serie"));
+        add(jTextFieldTituloSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 260, -1));
 
         jTextFieldNoCaps.setBorder(javax.swing.BorderFactory.createTitledBorder("No. Capítulos"));
+        add(jTextFieldNoCaps, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 93, -1));
 
         jTextFieldNoTemp.setBorder(javax.swing.BorderFactory.createTitledBorder("No. Temporadas"));
+        add(jTextFieldNoTemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 127, -1));
 
+        jButtonGuardarS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editar.png"))); // NOI18N
         jButtonGuardarS.setText("Actualizar");
         jButtonGuardarS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGuardarSActionPerformed(evt);
             }
         });
+        add(jButtonGuardarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
+        jButtonLimpiarCampos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/escoba.jpeg"))); // NOI18N
         jButtonLimpiarCampos.setText("Limpiar Campos");
         jButtonLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLimpiarCamposActionPerformed(evt);
             }
         });
+        add(jButtonLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldTituloSerie)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldNoCaps, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jButtonGuardarS)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldNoTemp)
-                            .addComponent(jButtonLimpiarCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(12, 12, 12))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jTextFieldTituloSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldNoCaps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNoTemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonGuardarS)
-                    .addComponent(jButtonLimpiarCampos))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Dialog", 2, 10)); // NOI18N
+        jLabel1.setText("Actualiza por Título Serie");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonGuardarSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarSActionPerformed
@@ -145,6 +120,7 @@ public class JPanelSerieU extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonGuardarS;
     private javax.swing.JButton jButtonLimpiarCampos;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextFieldNoCaps;
     private javax.swing.JTextField jTextFieldNoTemp;
     private javax.swing.JTextField jTextFieldTituloSerie;

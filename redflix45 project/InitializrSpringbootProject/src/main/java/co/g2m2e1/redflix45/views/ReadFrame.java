@@ -66,17 +66,17 @@ public class ReadFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelRead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelRead, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jSeparator1)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(151, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(154, 154, 154)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jComboBoxRead, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(144, 144, 144))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,19 +102,19 @@ public class ReadFrame extends javax.swing.JFrame {
             jPanelRead.add(jpu,"usuario");
             vista.show(jPanelRead, "usuario");
             SwingUtilities.updateComponentTreeUI(this);
-            //this.repaint();
+            this.repaint();
             break;
             case "Serie":
             jPanelRead.add(jps,"serie");
             vista.show(jPanelRead, "serie");
             SwingUtilities.updateComponentTreeUI(this);
-            //this.repaint();
+            this.repaint();
             break;
             case "Película":
             jPanelRead.add(jpp,"pelicula");
             vista.show(jPanelRead, "pelicula");
             SwingUtilities.updateComponentTreeUI(this);
-            //this.repaint();
+            this.repaint();
             break;
         }
     }//GEN-LAST:event_jComboBoxReadActionPerformed

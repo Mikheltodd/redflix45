@@ -78,6 +78,7 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
 
         jTextFieldNombreDir.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre director"));
 
+        jButtonEliminarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basura.png"))); // NOI18N
         jButtonEliminarP.setText("Eliminar");
         jButtonEliminarP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +86,7 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
             }
         });
 
+        jButtonLimpiarCampos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/escoba.jpeg"))); // NOI18N
         jButtonLimpiarCampos.setText("Limpiar Campos");
         jButtonLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,7 +181,7 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addComponent(jButtonEliminarP)
-                        .addGap(83, 83, 83)
+                        .addGap(61, 61, 61)
                         .addComponent(jButtonLimpiarCampos))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
