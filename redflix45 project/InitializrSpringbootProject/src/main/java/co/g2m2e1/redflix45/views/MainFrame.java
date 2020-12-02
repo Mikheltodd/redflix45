@@ -6,9 +6,6 @@
 package co.g2m2e1.redflix45.views;
 
 import co.g2m2e1.redflix45.Redflix45Application;
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -39,75 +36,73 @@ public class MainFrame extends javax.swing.JFrame {
         jButtonDelete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButtonCreate = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RedFlix45");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonRead.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/g2m2e1/redflix45/images/buscar.png"))); // NOI18N
         jButtonRead.setText("Consultar");
         jButtonRead.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonReadActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonRead, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 161, 107, -1));
 
-        jButtonUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/g2m2e1/redflix45/images/editar.png"))); // NOI18N
         jButtonUpdate.setText("Actualizar");
         jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 211, -1, -1));
 
-        jButtonDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/g2m2e1/redflix45/images/basura.png"))); // NOI18N
         jButtonDelete.setText("Eliminar");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 211, 107, -1));
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 3, 24)); // NOI18N
-        jLabel1.setText("Welcome \nRedFlixApp");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, 67));
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jLabel1.setText("Menú RedFlixApp");
 
-        jButtonCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/g2m2e1/redflix45/images/agregar.png"))); // NOI18N
         jButtonCreate.setText("Crear");
         jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreateActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 161, 107, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/g2m2e1/redflix45/images/cine.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 261, -1, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/g2m2e1/redflix45/images/reproductor-de-video.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 79, -1, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/g2m2e1/redflix45/images/palomitas-de-maiz.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 79, -1, -1));
-
-        jLabel5.setText("MisionTic2022");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 337, -1, -1));
-
-        jLabel6.setText("Team Miguel");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 337, -1, -1));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/g2m2e1/redflix45/images/background_main2.jpg"))); // NOI18N
-        jLabel7.setPreferredSize(new java.awt.Dimension(412, 359));
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 360));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonRead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(84, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonCreate)
+                .addGap(32, 32, 32)
+                .addComponent(jButtonRead)
+                .addGap(29, 29, 29)
+                .addComponent(jButtonUpdate)
+                .addGap(28, 28, 28)
+                .addComponent(jButtonDelete)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -173,13 +168,5 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRead;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
-
-
 }
