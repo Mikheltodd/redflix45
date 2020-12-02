@@ -8,6 +8,7 @@ package co.g2m2e1.redflix45.views;
 import co.g2m2e1.redflix45.Context;
 import co.g2m2e1.redflix45.models.Shows;
 import co.g2m2e1.redflix45.repositories.ShowsRepository;
+import java.util.Optional;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -49,7 +50,7 @@ public class JPanelSerieU extends javax.swing.JPanel {
 
         jTextFieldNoTemp.setBorder(javax.swing.BorderFactory.createTitledBorder("No. Temporadas"));
 
-        jButtonGuardarS.setText("Crear");
+        jButtonGuardarS.setText("Actualizar");
         jButtonGuardarS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGuardarSActionPerformed(evt);
@@ -79,7 +80,7 @@ public class JPanelSerieU extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jButtonGuardarS)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldNoTemp)
                             .addComponent(jButtonLimpiarCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -104,20 +105,28 @@ public class JPanelSerieU extends javax.swing.JPanel {
 
     private void jButtonGuardarSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarSActionPerformed
         // TODO add your handling code here:
-        try{
-            Shows s = new Shows();
-            s.setShowTitle(jTextFieldTituloSerie.getText());
-            s.setShowEpisodes(jTextFieldNoCaps.getText());
-            s.setShowSeasons(jTextFieldNoTemp.getText());
-            showRepository.save(s);
-            jTextFieldTituloSerie.requestFocus();
-            System.out.println("Se registró correctamente la serie "+s.getShowTitle());
-            JOptionPane.showMessageDialog(null, "Se registró correctamente la serie "+ s.getShowTitle(),"Mensaje",JOptionPane.INFORMATION_MESSAGE);
-        }catch(Exception e){
-            System.out.println("Error al ingresar la serie");
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"Error al ingresar la serie","Warning",JOptionPane.WARNING_MESSAGE);
+        String idSerie = jTextFieldTituloSerie.getText();
+        Optional<Shows> opt = showRepository.findById(idSerie);
+
+        if (!idSerie.isEmpty()) {
+            try {
+                if (opt.isPresent()) {
+                    Shows s = new Shows();
+                    s.setShowTitle(idSerie);
+                    s.setShowEpisodes(jTextFieldNoCaps.getText());
+                    s.setShowSeasons(jTextFieldNoTemp.getText());
+                    showRepository.save(s);
+                    JOptionPane.showMessageDialog(null, "Se actualizo correctamente la serie: " + idSerie, "Warning", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se encontro serie con titulo: " + idSerie, "Warning", JOptionPane.WARNING_MESSAGE);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al actualizar la serie", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No se ha digitado un titulo de serie", "Warning", JOptionPane.WARNING_MESSAGE);
         }
+
     }//GEN-LAST:event_jButtonGuardarSActionPerformed
 
     private void jButtonLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarCamposActionPerformed
