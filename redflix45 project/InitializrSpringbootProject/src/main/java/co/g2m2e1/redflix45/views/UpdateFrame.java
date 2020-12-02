@@ -13,17 +13,17 @@ import javax.swing.SwingUtilities;
  *
  * @author ESLUNAP
  */
-public class ReadFrame extends javax.swing.JFrame {
+public class UpdateFrame extends javax.swing.JFrame {
 
-    JPanelUsuarioR jpu = new JPanelUsuarioR();
-    JPanelSerieR jps = new JPanelSerieR();
-    JPanelPeliculaR jpp = new JPanelPeliculaR();
+    JPanelUsuarioU jpu = new JPanelUsuarioU();
+    JPanelSerieU jps = new JPanelSerieU();
+    JPanelPeliculaU jpp = new JPanelPeliculaU();
     CardLayout vista;
     
     /**
      * Creates new form ReadFrame
      */
-    public ReadFrame() {
+    public UpdateFrame() {
         initComponents();
         this.getContentPane().setBackground(Color.white);
         vista = (CardLayout) jPanelRead.getLayout();
@@ -136,21 +136,23 @@ public class ReadFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReadFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReadFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReadFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReadFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReadFrame().setVisible(true);
+                new UpdateFrame().setVisible(true);
             }
         });
     }

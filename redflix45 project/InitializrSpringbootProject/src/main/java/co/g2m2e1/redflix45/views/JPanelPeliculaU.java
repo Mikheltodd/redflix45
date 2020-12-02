@@ -19,7 +19,7 @@ import javax.swing.text.StyleConstants;
  *
  * @author ESLUNAP
  */
-public class JPanelPeliculaR extends javax.swing.JPanel {
+public class JPanelPeliculaU extends javax.swing.JPanel {
 
     MoviesRepository movieRepository;
     DefaultListModel listModel = new DefaultListModel();
@@ -28,7 +28,7 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
     /**
      * Creates new form JPanelPelicula
      */
-    public JPanelPeliculaR() {
+    public JPanelPeliculaU() {
         initComponents();
         movieRepository = Context.getBean(MoviesRepository.class);
         //jLabelInfoTitulo.setVisible(false);
