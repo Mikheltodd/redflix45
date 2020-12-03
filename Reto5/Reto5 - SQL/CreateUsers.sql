@@ -1,8 +1,8 @@
 -- -----------------------------------------------------
--- Table RedFlix.Users
+-- Table RedFlix.users
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Users;
-CREATE TABLE IF NOT EXISTS Users (
+DROP TABLE IF EXISTS users;
+CREATE TABLE IF NOT EXISTS users (
 	user_username VARCHAR(40) NOT NULL,
     user_password VARCHAR(40) NOT NULL DEFAULT "user123",
     user_name VARCHAR(60) NULL,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS Users (
     PRIMARY KEY (user_username)
 );
 -- User Values
-INSERT INTO Users (user_username, user_name, user_lastname)
+INSERT INTO users (user_username, user_name, user_lastname)
 	VALUES 
 		("lucky", "Pedro", "Perez"),
         ("malopez", "Maria", "Lopez"),

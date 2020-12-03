@@ -1,16 +1,16 @@
 -- -----------------------------------------------------
--- Table RedFlix45.Movies
+-- Table RedFlix45.movies
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Movies;
-CREATE TABLE IF NOT EXISTS Movies (
+DROP TABLE IF EXISTS movies;
+CREATE TABLE IF NOT EXISTS movies (
 	movie_title VARCHAR(60) NOT NULL,
 	movie_summary VARCHAR(500) NULL,
 	movie_year INT NULL,
 	movie_director VARCHAR(60) NOT NULL,
 	PRIMARY KEY (movie_title)
 );
--- Content Values - Movies
-INSERT INTO Movies (movie_title, movie_summary, movie_year, movie_director)
+-- Content Values - movies
+INSERT INTO movies (movie_title, movie_summary, movie_year, movie_director)
 	VALUES 
 		("Los Vengadores", "Pelicula de superheroes basada en Marvel Comics. Nick Fury director de SHIELD recluta a Tony Stark, Steve Rogers, Bruce Banner y Thor para forma un equipo y evitar que Loki, hermano de Thor, se apodere de la tierra.", 1990, "Joss Whedon"),
         ("Interestelar", "Pelicula de ciencia ficción, donde la humanidad lucha por sobrevivir. La pelicula cuenta una historia de un grupo de astronautas que viajan a traves de un agujero de gusano en busca de un nuevo hogar.", 2014, "Christopher Nolan"),

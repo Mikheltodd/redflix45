@@ -1,15 +1,15 @@
 -- -----------------------------------------------------
--- Table RedFlix45.Shows
+-- Table RedFlix45.shows
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS Shows;
-CREATE TABLE IF NOT EXISTS Shows (
+DROP TABLE IF EXISTS shows;
+CREATE TABLE IF NOT EXISTS shows (
 	show_title VARCHAR(60) NOT NULL,
 	show_seasons INT NULL,
 	show_episodes INT NULL,
 	PRIMARY KEY (show_title)
 );
--- Content Values - Shows
-INSERT INTO Shows (show_title, show_seasons, show_episodes)
+-- Content Values - shows
+INSERT INTO shows (show_title, show_seasons, show_episodes)
 	VALUES 
 		("The walking dead", 11, 153),
         ("Viaje a las estrellas: la serie original", 3, 80),
