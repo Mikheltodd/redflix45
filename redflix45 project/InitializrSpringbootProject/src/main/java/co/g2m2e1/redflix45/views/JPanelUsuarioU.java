@@ -8,7 +8,6 @@ package co.g2m2e1.redflix45.views;
 import co.g2m2e1.redflix45.Context;
 import co.g2m2e1.redflix45.models.Users;
 import co.g2m2e1.redflix45.repositories.UsersRepository;
-import java.util.List;
 import java.util.Optional;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -81,6 +80,11 @@ public class JPanelUsuarioU extends javax.swing.JPanel {
         jPassword1.setText("jPasswordField1");
         jPassword1.setToolTipText("");
         jPassword1.setBorder(javax.swing.BorderFactory.createTitledBorder("Contraseña"));
+        jPassword1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPassword1MouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 2, 10)); // NOI18N
         jLabel1.setText("Ingrese los datos");
@@ -98,11 +102,12 @@ public class JPanelUsuarioU extends javax.swing.JPanel {
                         .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jTextFieldFechaNto, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextFieldCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextFieldCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(6, 6, 6))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jButtonConsultarU)
                             .addGap(38, 38, 38)
@@ -183,6 +188,11 @@ public class JPanelUsuarioU extends javax.swing.JPanel {
         }
         jTextFieldAlias.requestFocus();
     }//GEN-LAST:event_jButtonLimpiarCamposActionPerformed
+
+    private void jPassword1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPassword1MouseClicked
+        // TODO add your handling code here:
+         jPassword1.setText("");
+    }//GEN-LAST:event_jPassword1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

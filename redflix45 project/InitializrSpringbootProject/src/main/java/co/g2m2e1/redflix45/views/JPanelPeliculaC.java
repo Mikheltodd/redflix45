@@ -8,6 +8,8 @@ package co.g2m2e1.redflix45.views;
 import co.g2m2e1.redflix45.Context;
 import co.g2m2e1.redflix45.models.Movies;
 import co.g2m2e1.redflix45.repositories.MoviesRepository;
+import co.g2m2e1.redflix45.repositories.ShowsRepository;
+import java.util.Optional;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.text.SimpleAttributeSet;
@@ -131,19 +133,29 @@ public class JPanelPeliculaC extends javax.swing.JPanel {
 
     private void jButtonGuardarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarPActionPerformed
         // TODO add your handling code here
-        try{
-            Movies p = new Movies();
-            p.setMovieTitle(jTextFieldPelicula.getText());
-            p.setMovieSummary(jtpResumen.getText());
-            p.setMovieYear(Long.parseLong(jTextFieldAnno.getText()));
-            p.setMovieDirector(jTextFieldNombreDir.getText());
-            movieRepository.save(p);
-            System.out.println("Se registró correctamente la película "+ p.getMovieTitle());
-            JOptionPane.showMessageDialog(null, "Se registró correctamente la película "+ p.getMovieTitle(),"Mensaje",JOptionPane.INFORMATION_MESSAGE);
-        }catch(Exception e){
-            System.out.println("Error al crear película");
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"Error al crear película","Warning",JOptionPane.WARNING_MESSAGE);
+        String movie = jTextFieldPelicula.getText();
+        Optional<Movies> opt = movieRepository.findById(movie);
+        if (!movie.isEmpty()){
+            try{
+                if(!opt.isPresent()){
+                    Movies p = new Movies();
+                    p.setMovieTitle(jTextFieldPelicula.getText());
+                    p.setMovieSummary(jtpResumen.getText());
+                    p.setMovieYear(Long.parseLong(jTextFieldAnno.getText()));
+                    p.setMovieDirector(jTextFieldNombreDir.getText());
+                    movieRepository.save(p);
+                    System.out.println("Se registró correctamente la película "+ p.getMovieTitle());
+                    JOptionPane.showMessageDialog(null, "Se registró correctamente la película "+ p.getMovieTitle(),"Mensaje",JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null,"Ya existe la pelicula ingresada","Warning",JOptionPane.WARNING_MESSAGE);
+                }
+            }catch(Exception e){
+                System.out.println("Error al crear película");
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null,"Error al crear película","Warning",JOptionPane.WARNING_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"No ha ingresado nombre de la pelicula","Warning",JOptionPane.WARNING_MESSAGE);
         }
         jTextFieldPelicula.requestFocus();
     }//GEN-LAST:event_jButtonGuardarPActionPerformed

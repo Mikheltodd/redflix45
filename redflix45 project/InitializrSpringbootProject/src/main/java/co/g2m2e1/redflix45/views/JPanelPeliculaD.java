@@ -32,14 +32,6 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
     public JPanelPeliculaD() {
         initComponents();
         movieRepository = Context.getBean(MoviesRepository.class);
-        //jLabelInfoTitulo.setVisible(false);
-//        jLabelInfoDirector.setVisible(false);
-//        jTextFieldNombreDir.setEnabled(false);
-//        jrbTitulo.setSelected(true);
-//        jtpResumen.setEnabled(false);
-//        jtfAnno.setEnabled(false);
-//        StyleConstants.setAlignment(attribs , StyleConstants.ALIGN_JUSTIFIED);
-//        jtpResumen.setParagraphAttributes(attribs,true);
     }
 
     /**
@@ -51,13 +43,13 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnGroupTipoConsulta = new javax.swing.ButtonGroup();
         jTextFieldPelicula = new javax.swing.JTextField();
         jButtonEliminarP = new javax.swing.JButton();
         jButtonLimpiarCampos = new javax.swing.JButton();
         jLabelInfoTitulo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextFieldPelicula.setBorder(javax.swing.BorderFactory.createTitledBorder("Título película"));
         jTextFieldPelicula.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +57,7 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
                 jTextFieldPeliculaActionPerformed(evt);
             }
         });
+        add(jTextFieldPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 203, -1));
 
         jButtonEliminarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basura.png"))); // NOI18N
         jButtonEliminarP.setText("Eliminar");
@@ -73,6 +66,7 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
                 jButtonEliminarPActionPerformed(evt);
             }
         });
+        add(jButtonEliminarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jButtonLimpiarCampos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/escoba.jpeg"))); // NOI18N
         jButtonLimpiarCampos.setText("Limpiar Campos");
@@ -81,58 +75,16 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
                 jButtonLimpiarCamposActionPerformed(evt);
             }
         });
+        add(jButtonLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, -1, -1));
 
         jLabelInfoTitulo.setFont(new java.awt.Font("Dialog", 2, 10)); // NOI18N
         jLabelInfoTitulo.setText("Ingrese título");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jButtonEliminarP)
-                        .addGap(60, 60, 60)
-                        .addComponent(jButtonLimpiarCampos))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(jTextFieldPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(jLabelInfoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(jLabelInfoTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonEliminarP)
-                    .addComponent(jButtonLimpiarCampos))
-                .addContainerGap(117, Short.MAX_VALUE))
-        );
+        add(jLabelInfoTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 129, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarCamposActionPerformed
         // TODO add your handling code here:
-//        btnGroupTipoConsulta.clearSelection();
-//        JTextField caja;
-//        for (int i = 0; i< this.getComponentCount();i++){
-//            if(this.getComponent(i).getClass().getName().equals("javax.swing.JTextField")){
-//                caja = (JTextField)this.getComponent(i);
-//                caja.setText("");            
-//            }        
-//        }
-//        jtpResumen.setText("");
-//        listModel.clear();
-//        jListPeliculas.setModel(listModel);
-//        jrbTitulo.setSelected(true);
+        jTextFieldPelicula.setText("");
     }//GEN-LAST:event_jButtonLimpiarCamposActionPerformed
 
     private void jButtonEliminarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarPActionPerformed
@@ -145,9 +97,9 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
                 try {
                     if (opt.isPresent()) {
                         movieRepository.deleteById(idMovie);
-                        JOptionPane.showMessageDialog(null, "Se elimino correctamente la pelicula "+idMovie, "", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Se eliminó correctamente la pelicula "+idMovie, "", JOptionPane.WARNING_MESSAGE);
                     } else {
-                        JOptionPane.showMessageDialog(null, "No se encontro la pelicula con nombre "+idMovie, "", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "No se encontró la pelicula con nombre "+idMovie, "", JOptionPane.WARNING_MESSAGE);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -155,7 +107,7 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
 
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "No ha el titulo de pelicula", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "No ha ingresado el título de película", "", JOptionPane.WARNING_MESSAGE);
             }
 
             
@@ -168,7 +120,6 @@ public class JPanelPeliculaD extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup btnGroupTipoConsulta;
     private javax.swing.JButton jButtonEliminarP;
     private javax.swing.JButton jButtonLimpiarCampos;
     private javax.swing.JLabel jLabelInfoTitulo;

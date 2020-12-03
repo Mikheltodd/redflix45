@@ -42,6 +42,7 @@ public class JPanelUsuarioD extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextFieldAlias.setBorder(javax.swing.BorderFactory.createTitledBorder("Alias"));
         jTextFieldAlias.addActionListener(new java.awt.event.ActionListener() {
@@ -49,6 +50,7 @@ public class JPanelUsuarioD extends javax.swing.JPanel {
                 jTextFieldAliasActionPerformed(evt);
             }
         });
+        add(jTextFieldAlias, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 53, 291, -1));
 
         jButtonBorrarU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basura.png"))); // NOI18N
         jButtonBorrarU.setText("Borrar");
@@ -57,6 +59,7 @@ public class JPanelUsuarioD extends javax.swing.JPanel {
                 jButtonBorrarUActionPerformed(evt);
             }
         });
+        add(jButtonBorrarU, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jButtonLimpiarCampos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/escoba.jpeg"))); // NOI18N
         jButtonLimpiarCampos.setText("Limpiar Campos");
@@ -65,42 +68,11 @@ public class JPanelUsuarioD extends javax.swing.JPanel {
                 jButtonLimpiarCamposActionPerformed(evt);
             }
         });
+        add(jButtonLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 2, 10)); // NOI18N
         jLabel1.setText("Eliminar por alias");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jTextFieldAlias))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButtonBorrarU)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                        .addComponent(jButtonLimpiarCampos)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldAlias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonBorrarU)
-                    .addComponent(jButtonLimpiarCampos))
-                .addContainerGap(141, Short.MAX_VALUE))
-        );
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 21, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonBorrarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarUActionPerformed
